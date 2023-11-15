@@ -1,0 +1,75 @@
+      body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #333; /* Color de fondo oscuro */
+            color: #fff; /* Color de texto claro */
+        }
+
+        /* Estilos para el contenedor principal */
+        .Colcont {
+            text-align: center;
+            background-color: #222; /* Color de fondo más oscuro */
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        /* Estilos para el título */
+        .H1styled {
+            margin-bottom: 20px;
+            color: #00bcd4; /* Color del título */
+        }
+
+        /* Estilos para la imagen */
+        .ImageStyled {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+
+        /* Estilos para los elementos de entrada */
+        .InputContainer {
+            margin-bottom: 15px;
+        }
+
+        .InputLabel {
+            display: block;
+            margin-bottom: 5px;
+            text-align: left;
+            color: #00bcd4; /* Color de texto para etiquetas */
+        }
+
+        .InputStyled {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            background-color: #444; /* Color de fondo para campos de entrada */
+            color: #fff; /* Color de texto para campos de entrada */
+            border: 1px solid #00bcd4; /* Color del borde para campos de entrada */
+            border-radius: 5px;
+        }
+
+        /* Estilos para el contenedor de calificación */
+        .RatingContainer {
+            margin-top: 20px;
+        }
+
+        .RatingText {
+            color: #00bcd4; /* Color del texto de calificación */
+        }
+
+        /* Estilos para los botones de calificación */
+        .RatingButton {
+            font-size: 16px;
+            margin: 0 5px;
+            padding: 10px;
+            cursor: pointer;
+            background-color: #00bcd4; /* Color de fondo para botones de calificación */
+            color: #fff; /* Color de texto para botones de calificación */
+            border: none;
+            border-radius: 5px;
+        }
