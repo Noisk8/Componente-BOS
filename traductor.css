@@ -1,0 +1,28 @@
+body {
+      background-color: #1a1a1a; /* Fondo oscuro */
+      color: #ffffff; /* Texto blanco */
+    }
+
+    .form-group label {
+      color: #4ca1af; /* Color del texto de las etiquetas */
+    }
+
+    .form-control {
+      background-color: #1f1f1f; /* Color de fondo de los campos de entrada */
+      color: #ffffff; /* Color del texto en los campos de entrada */
+    }
+
+    .btn-primary {
+      background-color: #ffcc29; /* Color de fondo del botón */
+      border-color: #ffcc29; /* Color del borde del botón */
+    }
+
+    .btn-primary:hover {
+      background-color: #ffaa00; /* Cambio de color al pasar el ratón sobre el botón */
+      border-color: #ffaa00; /* Cambio de color del borde al pasar el ratón sobre el botón */
+    }
+
+    #outputText {
+      background-color: #1f1f1f; /* Color de fondo del área de texto de salida */
+    }
+
