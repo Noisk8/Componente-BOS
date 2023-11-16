@@ -1,3 +1,61 @@
+const tipMeContract = "0x57E094946e737694fCdADfdF2f2FfbfC8c6F99e4";
+
+const tipMetAbi = fetch(
+    "https://raw.githubusercontent.com/Noisk8/Componente-BOS/main/Forwarder_abi.txt"
+);
+
+const donationAmount = ethers.utils.parseEther("0.000282233502538071");
+
+
+
+const tipMe = () => {
+    const contract = new ethers.Contract(
+        tipMeContract,
+        tipMetAbi.body,
+        Ethers.provider().getSigner()
+    );
+    contract
+        .donateCoffee(
+            "El articulo",
+            "0x087f9545Dad969C6b806C40E08E7D45c72D0C676",
+            "Tales de mileto",
+            "Vive y deja vivir",
+            5,
+            {
+                value: donationAmount,
+            }
+        )
+        .then((res) => console.log(res));
+};
+
+const tipsQty = () => {
+    const contract = new ethers.Contract(
+        tipMeContract,
+        tipMetAbi.body,
+        Ethers.provider().getSigner()
+    );
+    let cofeeQtyTips = 0;
+    contract.getCoffeeQTY().then((res) => {
+        let qty = parseInt(res, 16);
+        cofeeQtyTips = qty;
+    });
+};
+
+const getDonators = () => {
+    const contract = new ethers.Contract(
+        tipMeContract,
+        tipMetAbi.body,
+        Ethers.provider().getSigner()
+    );
+    let donators = [];
+    contract.getCoffeeLog().then((info) => {
+        console.log(info);
+    });
+};
+
+
+
+
 const giveme = () => {};
 const Button0018 = styled.button`
   outline: none;
@@ -56,10 +114,6 @@ return (
     <div className="bg-light-subtle">
       <div class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-          <Web3Connect
-            className="ConnectButton "
-            connectLabel="Connect with Web3"
-          />
           <button
             class="navbar-toggler"
             type="button"
@@ -130,7 +184,12 @@ return (
                 </ul>
               </li>
             </ul>
-            <div class="d-flex" role="search"></div>
+            <div class="d-flex">
+              <Web3Connect
+                className="ConnectButton "
+                connectLabel="Connect with Web3"
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -145,7 +204,7 @@ return (
             className="mb-4"
           />
 
-          <div className="d-flex justify-content-center align-items-center flex-column bg-light p-3 shadow-lg rounded">
+          <div className="d-flex justify-content-center align-items-center flex-column bg-light p-3 shadow-lg rounded mb-4">
             <div className="form-group">
               <input
                 className="form-control mt-2"
@@ -182,13 +241,10 @@ return (
                 <option value="3">⭐⭐⭐⭐⭐</option>
               </select>
             </div>
-            <Button0018
-              fontsize={fontsize}
-              fontweight={fontweight}
-              onClick={giveme}
-            >
-              <span>Give me </span>
-            </Button0018>
+          
+            <Button0018 fontsize={fontsize} fontweight={fontweight} onClick={tipMe}>
+            <span>Tipe Me </span>
+        </Button0018>
           </div>
 
           <h1 className="mt-4 mb-4 text-center"> Ultimas Donaciones</h1>
@@ -228,7 +284,7 @@ return (
             </tbody>
           </table>
         </div>
-        <div class="card-footer bg-transparent border-success">
+        <div class="card-footer bg-transparent border-success mb-4 ">
           Tipe Me 2023
         </div>
       </div>
