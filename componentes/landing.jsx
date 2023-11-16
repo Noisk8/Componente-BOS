@@ -6,6 +6,15 @@ const tipMetAbi = fetch(
 
 const donationAmount = ethers.utils.parseEther("0.000282233502538071");
 
+let donators = [];
+let qty = 0;
+State.init({
+  qty,
+  donators,
+  name: "",
+  message: "",
+});
+
 const tipMe = () => {
   const contract = new ethers.Contract(
     tipMeContract,
@@ -16,8 +25,8 @@ const tipMe = () => {
     .donateCoffee(
       "El articulo",
       "0x087f9545Dad969C6b806C40E08E7D45c72D0C676",
-      "Tales de mileto",
-      "Vive y deja vivir",
+      state.name,
+      state.message,
       5,
       {
         value: donationAmount,
@@ -32,11 +41,12 @@ const tipsQty = () => {
     tipMetAbi.body,
     Ethers.provider().getSigner()
   );
-  let cofeeQtyTips = 0;
+
   contract.getCoffeeQTY().then((res) => {
-    let qty = parseInt(res, 16);
-    cofeeQtyTips = qty;
+    let qtyDonations = parseInt(res, 16);
+    State.update({ qty: qtyDonations });
   });
+  console.log(state.name);
 };
 
 const getDonators = () => {
@@ -45,9 +55,24 @@ const getDonators = () => {
     tipMetAbi.body,
     Ethers.provider().getSigner()
   );
-  let donators = [];
+
   contract.getCoffeeLog().then((info) => {
-    console.log(info);
+    donators = [];
+    info.map((data) => {
+      if (data[1] != "") {
+        let date = parseInt(data[0], 16);
+
+        const myDate = new Date(date * 1000);
+        donators.push({
+          date: myDate.toLocaleString(),
+          title: data[1],
+          name: data[3],
+          message: data[4],
+          rating: data[5],
+        });
+      }
+    });
+    State.update({ donators: donators });
   });
 };
 
@@ -182,7 +207,7 @@ return (
             <div class="d-flex">
               <Web3Connect
                 className="ConnectButton "
-                connectLabel="Connect with Web3"
+                connectLabel="Conetar Billetera"
               />
             </div>
           </div>
@@ -221,9 +246,11 @@ return (
                 aria-label="With textarea"
               ></textarea>
             </div>
-<div class="mb-2">
-            <Widget src={"marketplacebos.near/widget/Radio.RadioP.Radio0001"}  />
-</div>
+            <div class="mb-2">
+              <Widget
+                src={"marketplacebos.near/widget/Radio.RadioP.Radio0001"}
+              />
+            </div>
             <Button0018
               fontsize={fontsize}
               fontweight={fontweight}
@@ -234,6 +261,10 @@ return (
           </div>
 
           <h1 className="mt-4 mb-4 text-center"> Ultimas Donaciones</h1>
+          <button onClick={tipsQty}>cantidad donaciones</button>
+           <h2 className="text-info">cantidad tips: {state.qty}</h2>
+           <div class="mb-4"> 
+    <button onClick={getDonators}>ultimos donantes</button></div>
           <table className="table table-bordered table-hover table-responsive bg-light p-3 shadow-lg rounded">
             <thead className="thead-dark">
               <tr>
