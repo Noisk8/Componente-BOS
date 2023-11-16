@@ -1,60 +1,55 @@
 const tipMeContract = "0x57E094946e737694fCdADfdF2f2FfbfC8c6F99e4";
 
 const tipMetAbi = fetch(
-    "https://raw.githubusercontent.com/Noisk8/Componente-BOS/main/Forwarder_abi.txt"
+  "https://raw.githubusercontent.com/Noisk8/Componente-BOS/main/Forwarder_abi.txt"
 );
 
 const donationAmount = ethers.utils.parseEther("0.000282233502538071");
 
-
-
 const tipMe = () => {
-    const contract = new ethers.Contract(
-        tipMeContract,
-        tipMetAbi.body,
-        Ethers.provider().getSigner()
-    );
-    contract
-        .donateCoffee(
-            "El articulo",
-            "0x087f9545Dad969C6b806C40E08E7D45c72D0C676",
-            "Tales de mileto",
-            "Vive y deja vivir",
-            5,
-            {
-                value: donationAmount,
-            }
-        )
-        .then((res) => console.log(res));
+  const contract = new ethers.Contract(
+    tipMeContract,
+    tipMetAbi.body,
+    Ethers.provider().getSigner()
+  );
+  contract
+    .donateCoffee(
+      "El articulo",
+      "0x087f9545Dad969C6b806C40E08E7D45c72D0C676",
+      "Tales de mileto",
+      "Vive y deja vivir",
+      5,
+      {
+        value: donationAmount,
+      }
+    )
+    .then((res) => console.log(res));
 };
 
 const tipsQty = () => {
-    const contract = new ethers.Contract(
-        tipMeContract,
-        tipMetAbi.body,
-        Ethers.provider().getSigner()
-    );
-    let cofeeQtyTips = 0;
-    contract.getCoffeeQTY().then((res) => {
-        let qty = parseInt(res, 16);
-        cofeeQtyTips = qty;
-    });
+  const contract = new ethers.Contract(
+    tipMeContract,
+    tipMetAbi.body,
+    Ethers.provider().getSigner()
+  );
+  let cofeeQtyTips = 0;
+  contract.getCoffeeQTY().then((res) => {
+    let qty = parseInt(res, 16);
+    cofeeQtyTips = qty;
+  });
 };
 
 const getDonators = () => {
-    const contract = new ethers.Contract(
-        tipMeContract,
-        tipMetAbi.body,
-        Ethers.provider().getSigner()
-    );
-    let donators = [];
-    contract.getCoffeeLog().then((info) => {
-        console.log(info);
-    });
+  const contract = new ethers.Contract(
+    tipMeContract,
+    tipMetAbi.body,
+    Ethers.provider().getSigner()
+  );
+  let donators = [];
+  contract.getCoffeeLog().then((info) => {
+    console.log(info);
+  });
 };
-
-
-
 
 const giveme = () => {};
 const Button0018 = styled.button`
@@ -219,32 +214,23 @@ return (
               />
             </div>
 
-            <div className="form-group">
+            <div className="form-group mb-4">
               <textarea
                 class="form-control mt-4"
                 placeholder="Sugerencias"
                 aria-label="With textarea"
               ></textarea>
             </div>
-
-            <div className="form-group mt-4 mb-4">
-              <select
-                class="form-select"
-                id="floatingSelect"
-                aria-label="Floating label select example"
-              >
-                <option selected>Calificación</option>
-                <option value="1">⭐</option>
-                <option value="2">⭐⭐</option>
-                <option value="3">⭐⭐⭐</option>
-                <option value="3">⭐⭐⭐⭐</option>
-                <option value="3">⭐⭐⭐⭐⭐</option>
-              </select>
-            </div>
-          
-            <Button0018 fontsize={fontsize} fontweight={fontweight} onClick={tipMe}>
-            <span>Tipe Me </span>
-        </Button0018>
+<div class="mb-2">
+            <Widget src={"marketplacebos.near/widget/Radio.RadioP.Radio0001"}  />
+</div>
+            <Button0018
+              fontsize={fontsize}
+              fontweight={fontweight}
+              onClick={tipMe}
+            >
+              <span>Tipe Me </span>
+            </Button0018>
           </div>
 
           <h1 className="mt-4 mb-4 text-center"> Ultimas Donaciones</h1>
