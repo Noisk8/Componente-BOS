@@ -236,6 +236,7 @@ return (
                 maxLength="8"
                 size="10"
                 placeholder="Nombre del Donante"
+                onChange={(event) => State.update({ name: event.target.value })}
               />
             </div>
 
@@ -244,6 +245,7 @@ return (
                 class="form-control mt-4"
                 placeholder="Sugerencias"
                 aria-label="With textarea"
+                onChange={(event) => State.update({ message: event.target.value })}
               ></textarea>
             </div>
             <div class="mb-2">
@@ -262,9 +264,10 @@ return (
 
           <h1 className="mt-4 mb-4 text-center"> Ultimas Donaciones</h1>
           <button onClick={tipsQty}>cantidad donaciones</button>
-           <h2 className="text-info">cantidad tips: {state.qty}</h2>
-           <div class="mb-4"> 
-    <button onClick={getDonators}>ultimos donantes</button></div>
+          <h2 className="text-info">cantidad tips: {state.qty}</h2>
+          <div class="mb-4">
+            <button onClick={getDonators}>ultimos donantes</button>
+          </div>
           <table className="table table-bordered table-hover table-responsive bg-light p-3 shadow-lg rounded">
             <thead className="thead-dark">
               <tr>
@@ -276,28 +279,18 @@ return (
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                <td>New Data 1</td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-
-                <td>New Data 3</td>
-              </tr>
-              <tr className="table-info">
-                <th scope="row">3</th>
-                <td>Larry the Bird</td>
-                <td> dato 3</td>
-                <td>@twitter</td>
-                <td>New Data 5</td>
-              </tr>
+              {console.log(state.donators)}
+              {state.donators.map((donator) => {
+                return (
+                  <tr>
+                    <td>{donator.date}</td>
+                    <td>{donator.title}</td>
+                    <td>{donator.name}</td>
+                    <td>{donator.message}</td>
+                    <td>{donator.rating}</td>
+                  </tr>
+                );
+              })}
             </tbody>
           </table>
         </div>
