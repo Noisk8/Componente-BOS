@@ -198,7 +198,7 @@ return (
         <div className="d-flex flex-column align-items-center mb-3">
           <h1> Tipe Me </h1>
           <img
-            src="https://raw.githubusercontent.com/Noisk8/Componente-BOS/main/tipeme.png"
+            src="https://raw.githubusercontent.com/Noisk8/Componente-BOS/main/img/tipeme.png"
             alt="Gif"
             width="200px"
             className="mb-4"
