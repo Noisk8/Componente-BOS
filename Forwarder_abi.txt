@@ -2,6 +2,11 @@
 	{
 		"inputs": [
 			{
+				"internalType": "string",
+				"name": "_title",
+				"type": "string"
+			},
+			{
 				"internalType": "address",
 				"name": "destination",
 				"type": "address"
@@ -37,6 +42,11 @@
 						"internalType": "uint256",
 						"name": "timestamp",
 						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "title",
+						"type": "string"
 					},
 					{
 						"internalType": "address",
