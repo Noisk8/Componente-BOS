@@ -72,20 +72,85 @@ El contrato permite donar fondos a una dirección específica, registrando la in
 
 La integración con BOS se realiza mediante Ether.js para facilitar la comunicación entre el frontend y el contrato inteligente. Se utilizan las funciones `getCoffeeLog` y `getCoffeeQTY` para lecturas, y `donateCoffee` para realizar una donación.
 
-## Consideraciones Importantes
 
-- La adaptación del contrato permite registrar información detallada sobre la donación, incluyendo la sección de blog o post asociada.
-- Se recomienda seguir las mejores prácticas de seguridad al interactuar con contratos inteligentes.
-- La documentación del ABI debe ser seguida rigurosamente para garantizar una integración exitosa.
+~~~
+# Documentación Desglosada del Contrato Inteligente para Donaciones
 
-## Contribuciones
+A continuación se presenta un desglose línea por línea del contrato inteligente para donaciones, adaptado para la certificación BOS en Open Web Academy.
 
-Las contribuciones son bienvenidas. Si encuentra algún problema o tiene sugerencias de mejora, por favor, abra un problema o envíe una solicitud de extracción.
+```solidity
+// Contrato adaptado para BOS certification en Open Web Academy
+// Adaptación de donación con registro de la sección de blog o post
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.19;
 
-¡Gracias por utilizar el backend del contrato inteligente para donaciones en Aurora adaptado para BOS Certification en Open Web Academy!
+contract Forwarder {
+   
+    uint8 ratingIndex = 0; // Índice para agregar la última donación
+    uint256 coffeeQTY = 0; // Cantidad de donaciones hechas
+
+    // Estructura básica de la donación
+    struct Coffee {
+        uint256 timestamp;
+        string title;
+        address sender;
+        string name;
+        string message;
+        uint8 rating;
+    }
+
+    // Sólo se guardan las últimas 5 donaciones
+    Coffee[5] coffeeLog;
+
+    // Retorno de las últimas 5 donaciones
+    function getCoffeeLog() public view returns (Coffee[5] memory) {
+        return coffeeLog;
+    }
+
+    // Retorno de la cantidad de donaciones hechas 
+    function getCoffeeQTY() public view returns (uint256) {
+        return coffeeQTY;
+    }
+
+    // Donación, por parámetro se reenvía el fondo enviado a la dirección indicada    
+    function donateCoffee(
+        string memory _title,
+        address destination,
+        string memory _name,
+        string memory _message,
+        uint8 _rating
+    ) public payable {
+        require(
+            msg.value > 0,
+            "Please send the quantity of a coffee or a little more :)"
+        );
+
+        if (ratingIndex > 4) {
+            ratingIndex = 0;
+        }
+        
+        coffeeLog[ratingIndex] = Coffee(
+            block.timestamp,
+            _title,
+            msg.sender,
+            _name,
+            _message,
+            _rating
+        );
+
+        address payable owner = payable(destination);
+        (bool success, ) = owner.call{value: msg.value}("");
+        require(success == true, "Donation unsuccessful :(");
+        
+        coffeeQTY = coffeeQTY + 1;
+        ratingIndex = ratingIndex + 1;
+    }
+}
+
+~~~
 
 
-LAS DOS DE LECTRURA CUANTAS DONACIONES HAN  EN HECHO Y EL LOG DE LAS UTIMAS 
+## ABI 
 
+Este ABI describe las tres funciones principales del contrato inteligente: donateCoffee, getCoffeeLog, y getCoffeeQTY. Puedes utilizar este ABI junto con lib ethers para interactuar con el contrato desde el frontend y realizar operaciones como hacer donaciones, obtener el registro de donaciones y la cantidad total de donaciones realizadas. Si tienes alguna pregunta o inquietud, no dudes en preguntar. ¡Gracias por tu interés en el contrato inteligente para donaciones!
 
-Y EL DE ESCRITURA ES EL QUE HACE LA DONACIÓN 
