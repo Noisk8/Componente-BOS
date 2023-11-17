@@ -1,18 +1,20 @@
+//Contrato desplegado en aurora testnet
 const tipMeContract = "0x57E094946e737694fCdADfdF2f2FfbfC8c6F99e4";
 
+//Abi del contrato
 const tipMetAbi = fetch(
   "https://raw.githubusercontent.com/Noisk8/Componente-BOS/main/Forwarder_abi.txt"
 );
-
+//aproximadamente medio dolar en aurora
 const donationAmount = ethers.utils.parseEther("0.000282233502538071");
 
 let donators = [];
 let qty = 0;
 State.init({
-  qty,
-  donators,
-  name: "",
-  message: "",
+  qty, //cantidad de donaciones
+  donators, //arreglo de los ultimas donaciones
+  name: "", //nombre del donador
+  message: "", //mensaje
 });
 
 const tipMe = () => {
@@ -21,6 +23,7 @@ const tipMe = () => {
     tipMetAbi.body,
     Ethers.provider().getSigner()
   );
+  //llamado para hacer la donación
   contract
     .donateCoffee(
       "El articulo",
@@ -36,6 +39,7 @@ const tipMe = () => {
 };
 
 const tipsQty = () => {
+  //llamado para traer cuando donaciones se han realizado
   const contract = new ethers.Contract(
     tipMeContract,
     tipMetAbi.body,
@@ -55,7 +59,7 @@ const getDonators = () => {
     tipMetAbi.body,
     Ethers.provider().getSigner()
   );
-
+//llamado al contrato de las donadiones y formateo de la infomacion
   contract.getCoffeeLog().then((info) => {
     donators = [];
     info.map((data) => {
