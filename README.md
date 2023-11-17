@@ -163,6 +163,7 @@ Este ABI describe las tres funciones principales del contrato inteligente: donat
 ![Captura desde 2023-11-17 00-17-29](https://github.com/Noisk8/Componente-BOS/assets/17709296/804d2f3d-ae23-4dc2-a9fa-4cb203219bfa)
 ![](https://github.com/Noisk8/Componente-BOS/blob/main/img/Captura%20desde%202023-11-17%2000-19-)
 |[](https://github.com/Noisk8/Componente-BOS/blob/main/img/Captura%20desde%202023-11-17%2000-24-22.png)
+![](https://github.com/Noisk8/Componente-BOS/blob/main/img/Captura%20desde%202023-11-17%2000-23-48.png)
 ![](https://github.com/Noisk8/Componente-BOS/blob/main/img/Captura%20desde%202023-11-17%2000-24-52.png)
 
 
