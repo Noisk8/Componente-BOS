@@ -242,9 +242,13 @@ const fontweight = props.fontweight;
 
 return (
   <>
+    // Este es un componente de barra de navegación. Se utiliza para navegar por las diferentes secciones de la página.
     <div className="bg-light-subtle">
+      // Este es un contenedor que contiene la barra de navegación.
       <div class="navbar navbar-expand-lg bg-body-tertiary">
+        // Este es un contenedor fluido que se utiliza para un diseño responsivo.
         <div class="container-fluid">
+          // Este es un botón que se utiliza para colapsar la barra de navegación en dispositivos más pequeños.
           <button
             class="navbar-toggler"
             type="button"
@@ -254,15 +258,19 @@ return (
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
+            // Este es el icono del botón de la barra de navegación.
             <span class="navbar-toggler-icon"></span>
           </button>
+          // Este es el contenedor que se colapsa en dispositivos más pequeños.
           <div
             class="collapse navbar-collapse btn-group "
             role="group"
             id="navbarSupportedContent"
             aria-label="Basic outlined example"
           >
+            // Esta es la lista de elementos de la barra de navegación.
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              // Estos son los elementos individuales de la barra de navegación.
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="#">
                   <button type="button" class="btn btn-outline-primary">
@@ -277,6 +285,7 @@ return (
                   </button>
                 </a>
               </li>
+              // Este es un elemento desplegable de la barra de navegación.
               <li class="nav-item dropdown">
                 <a
                   class="nav-link dropdown-toggle"
@@ -289,6 +298,7 @@ return (
                     Github
                   </button>
                 </a>
+                // Este es el menú desplegable del elemento desplegable.
                 <ul class="dropdown-menu">
                   <li>
                     <a class="dropdown-item" href="#">
@@ -315,6 +325,7 @@ return (
                 </ul>
               </li>
             </ul>
+            // Este es un contenedor para el botón de conexión de la billetera.
             <div class="d-flex">
               <Web3Connect
                 className="ConnectButton "
@@ -325,9 +336,13 @@ return (
         </div>
       </div>
 
+      // Este es un contenedor que contiene un título, una imagen y un formulario.
       <div className="container text-center mt-5">
+        // Este es un contenedor flexible que alinea sus hijos en el centro y en la parte inferior.
         <div className="d-flex flex-column align-items-center mb-3">
+          // Este es un título que dice "Tipe Me".
           <h1> Tipe Me  </h1>
+          // Esta es una imagen que se obtiene de una URL. La imagen tiene un ancho de 200px y tiene una clase que agrega un margen inferior.
           <img
             src="https://raw.githubusercontent.com/Noisk8/Componente-BOS/main/img/tipeme.png"
             alt="Gif"
@@ -335,8 +350,12 @@ return (
             className="mb-4"
           />
 
+          // Este es un contenedor flexible que alinea sus hijos en el centro y tiene un fondo claro. También tiene un padding y una sombra.
           <div className="d-flex justify-content-center align-items-center flex-column bg-light p-3 shadow-lg rounded mb-4">
+            // Este es un grupo de formularios que contiene un campo de entrada.
             <div className="form-group">
+              // Este es un campo de entrada que acepta texto. Tiene varias propiedades como requerido, longitud mínima y máxima, tamaño y un marcador de posición.
+              // Cuando el valor de este campo cambia, actualiza el estado con el nuevo valor.
               <input
                 className="form-control mt-2"
                 type="text"
@@ -351,25 +370,31 @@ return (
               />
             </div>
 
+            // Este es un grupo de formularios que contiene un área de texto.
             <div className="form-group mb-4">
+              // Este es un área de texto que acepta texto. Tiene varias propiedades como un marcador de posición.
+              // Cuando el valor de este campo cambia, actualiza el estado con el nuevo valor.
               <textarea
                 class="form-control mt-4"
                 placeholder="Sugerencias"
-                aria-label="With textarea"
+                aria-label="Con textarea"
                 onChange={(event) =>
                   State.update({ message: event.target.value })
                 }
               ></textarea>
             </div>
+            // Este es un contenedor que contiene un grupo de botones de radio para la calificación.
             <div class="mb-2">
               <RatingContainer>
+                // Estos son los botones de radio para la calificación. Cada uno tiene un valor y un identificador único.
+                // También tienen una etiqueta asociada que contiene un SVG para la estrella de la calificación.
                 <input
                   type="radio"
-                  id="star-1"
-                  name="star-radio"
-                  value="star-1"
+                  id="estrella-1"
+                  name="radio-estrella"
+                  value="estrella-1"
                 />
-                <label for="star-1">
+                <label for="estrella-1">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                     <path
                       pathLength="360"
@@ -379,11 +404,11 @@ return (
                 </label>
                 <input
                   type="radio"
-                  id="star-2"
-                  name="star-radio"
-                  value="star-1"
+                  id="estrella-2"
+                  name="radio-estrella"
+                  value="estrella-2"
                 />
-                <label for="star-2">
+                <label for="estrella-2">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                     <path
                       pathLength="360"
@@ -393,11 +418,11 @@ return (
                 </label>
                 <input
                   type="radio"
-                  id="star-3"
-                  name="star-radio"
-                  value="star-1"
+                  id="estrella-3"
+                  name="radio-estrella"
+                  value="estrella-3"
                 />
-                <label for="star-3">
+                <label for="estrella-3">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                     <path
                       pathLength="360"
@@ -407,11 +432,11 @@ return (
                 </label>
                 <input
                   type="radio"
-                  id="star-4"
-                  name="star-radio"
-                  value="star-1"
+                  id="estrella-4"
+                  name="radio-estrella"
+                  value="estrella-4"
                 />
-                <label for="star-4">
+                <label for="estrella-4">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                     <path
                       pathLength="360"
@@ -421,11 +446,11 @@ return (
                 </label>
                 <input
                   type="radio"
-                  id="star-5"
-                  name="star-radio"
-                  value="star-1"
+                  id="estrella-5"
+                  name="radio-estrella"
+                  value="estrella-5"
                 />
-                <label for="star-5">
+                <label for="estrella-5">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                     <path
                       pathLength="360"
