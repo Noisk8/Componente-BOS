@@ -1,13 +1,48 @@
 # Componente-BOS
 
 
-TIPE 
+# TIPE ME
 
-FONT END Y 
+Es una aplicación que permite a los usuarios del ecosistema de NEAR dar y recibir propinas por su activiadad en foros, creación  de componentes, notas etc etc.
+
+Por medio de un boton ubicado en difrenetes plataformas puedes dar una propina a un usuario y premiearlo por su buen trabajo 
+
+TIPE ME  surge en el marco de Open web Academy piloto BOS, donde la intención es experimentar con las diversas posibilidades que brinda la tecnolgia de BOS.
+
+
+TIPE está hecho en su totalidad con componentes de BOS  
+
+FONT END 
+
+El FrontEnd está diseñado cómo una landing page minimalista hecho con componentes hechos de 0 basado en la documentación de [Bootstrap](https://getbootstrap.com/) y con otros componentes de la [biblioteca de componentes](https://near.org/components) de BOS.
+
+Componentes de la interfaz 
+ 
+ * [NavBar](https://github.com/Noisk8/Componente-BOS/blob/main/componentes/navbar.jsx)
+
+ * [Web3 Connect]()
+
+ * [Cards](https://github.com/Noisk8/Componente-BOS/blob/main/componentes/card.jsx)
+
+ * [Tabla de registro](https://github.com/Noisk8/Componente-BOS/blob/main/componentes/tabla.jsx)
+
+ * [Acordeon](https://github.com/Noisk8/Componente-BOS/blob/main/componentes/acordion.jsx)
+
+ * [About](https://github.com/Noisk8/Componente-BOS/blob/main/componentes/about.jsx)
+
+ * [Landing](https://github.com/Noisk8/Componente-BOS/blob/main/componentes/landing.jsx)
+
+La interfaz cuenta con un navbar, un par de cajas con sombras que permiten al puedes enviar las donaciones y visualizar el registro de los ultimos 5 donantes 
+
+El landing se puede referenciar en [este archivo](https://github.com/Noisk8/Componente-BOS/blob/main/componentes/landing.jsx) Y los componentes se pueden ver por partes en la [carpeta](https://github.com/Noisk8/Componente-BOS/tree/main/componentes) de componentes de este repositorio.
+
+
 
 BACKEND
 
-Es un contrato inteligent en solidy para la evm  de aurora y está entestnet 
+
+
+El Backend está diseñado de tal manera que por medio de un contrato inteligent en solidy diseñado para la evm en testnet aurora  
 
 Estructura del contrato
 ARRAY 5 posiciones 
