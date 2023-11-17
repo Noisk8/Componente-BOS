@@ -400,11 +400,18 @@ return (
           </div>
 
           <h1 className="mt-4 mb-4 text-center"> Ultimas Donaciones</h1>
+
+          <div class=" bg-light p-3 shadow-lg rounded" >
+<div class="mb-4">
           <button onClick={tipsQty}>cantidad donaciones</button>
-          <h2 className="text-info">cantidad tips: {state.qty}</h2>
-          <div class="mb-4">
+</div>
+          <h2 className=" mt-2">cantidad tips: {state.qty}</h2>
+
+          <div class="mt-4">
             <button onClick={getDonators}>ultimos donantes</button>
           </div>
+          </div>
+          <div class="mt-4">
           <table className="table table-bordered table-hover table-responsive bg-light p-3 shadow-lg rounded">
             <thead className="thead-dark">
               <tr>
@@ -430,6 +437,7 @@ return (
               })}
             </tbody>
           </table>
+          </div>
         </div>
         <div class="card-footer bg-transparent border-success mb-4 ">
           Tipe Me 2023
