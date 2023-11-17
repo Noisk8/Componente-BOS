@@ -3,11 +3,13 @@
 
 # TIPE ME
 
-Es una aplicación que permite a los usuarios del ecosistema de NEAR dar y recibir propinas por su activiadad en foros, creación  de componentes, notas etc etc.
+TIPE ME es una aplicación diseñada para facilitar a los usuarios del ecosistema de NEAR la acción de dar y recibir propinas en reconocimiento a su participación en foros, creación de componentes, y otras actividades similares.
 
-Por medio de un boton ubicado en difrenetes plataformas puedes dar una propina a un usuario y premiearlo por su buen trabajo 
+La plataforma se integra de manera sencilla en diversas plataformas a través de un botón específico, permitiendo a los usuarios expresar su aprecio y premiar a otros por su destacado trabajo.
 
-TIPE ME  surge en el marco de Open web Academy piloto BOS, donde la intención es experimentar con las diversas posibilidades que brinda la tecnolgia de BOS.
+El desarrollo de TIPE ME se enmarca en la iniciativa piloto BOS de Open Web Academy, la cual tiene como objetivo explorar las diversas oportunidades que ofrece la tecnología de BOS.
+
+Cabe destacar que TIPE ME está construido exclusivamente utilizando componentes de BOS, lo que asegura una integración coherente y eficiente en el entorno NEAR.
 
 
 TIPE está hecho en su totalidad con componentes de BOS  
@@ -20,7 +22,7 @@ Componentes de la interfaz
  
  * [NavBar](https://github.com/Noisk8/Componente-BOS/blob/main/componentes/navbar.jsx)
 
- * [Web3 Connect]()
+ * [Web3 Connect](https://docs.near.org/bos/tutorial/ethers-js#how-to-show-a-web3login-button)
 
  * [Cards](https://github.com/Noisk8/Componente-BOS/blob/main/componentes/card.jsx)
 
