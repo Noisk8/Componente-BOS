@@ -1,28 +1,39 @@
+//Contrato adaptado para  BOS certification pode Open web academy
+/*adaptación de donación de 1 cafe a una donación con registro de que
+sección de blog  o post fué en el que recibión la donación
+*/
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.19;
 
 contract Forwarder {
-    uint8 ratingIndex = 0;
-    uint256 coffeeQTY = 0;
-    struct Coffee {
+   
+uint8 ratingIndex = 0; //indice para agregar la ultima donación
+uint256 coffeeQTY = 0; //cantidad de donaciones hechas
+   
+//Estructura básica de la donación
+struct Coffee {
         uint256 timestamp;
         string title;
         address sender;
         string name;
         string message;
         uint8 rating;
-    }
-    Coffee[5] coffeeLog;
+ }
+  //Sólo se guardan las últimas 5 donaciones 
+  Coffee[5] coffeeLog;
 
+   //retorno de las ultimas 5 donaciones
     function getCoffeeLog() public view returns (Coffee[5] memory) {
         return coffeeLog;
     }
 
-    function getCoffeeQTY() public view returns (uint256) {
+   //retorno de la cantida de donaciones hechas 
+   function getCoffeeQTY() public view returns (uint256) {
         return coffeeQTY;
     }
 
-    function donateCoffee(
+//donación, por parámetro se reenvia el fondo enviado a la dirección indicada    
+function donateCoffee(
         string memory _title,
         address destination,
         string memory _name,
