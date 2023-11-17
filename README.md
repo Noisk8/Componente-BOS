@@ -1,7 +1,6 @@
-# Componente-BOS
+## Componente-BOS
 
-
-# TIPE ME
+### TIPE ME  [(https://near.social/sergiotechx.near/widget/TipMe](https://near.social/sergiotechx.near/widget/TipMe))
 
 TIPE ME es una aplicación diseñada para facilitar a los usuarios del ecosistema de NEAR la acción de dar y recibir propinas en reconocimiento a su participación en foros, creación de componentes, y otras actividades similares.
 
@@ -11,34 +10,37 @@ El desarrollo de TIPE ME se enmarca en la iniciativa piloto BOS de Open Web Acad
 
 Cabe destacar que TIPE ME está construido exclusivamente utilizando componentes de BOS, lo que asegura una integración coherente y eficiente en el entorno NEAR.
 
+TIPE está hecho en su totalidad con componentes de BOS
 
-TIPE está hecho en su totalidad con componentes de BOS  
+---
 
-FONT END 
+**FRONT END**
 
 El FrontEnd está diseñado cómo una landing page minimalista hecho con componentes hechos de 0 basado en la documentación de [Bootstrap](https://getbootstrap.com/) y con otros componentes de la [biblioteca de componentes](https://near.org/components) de BOS.
 
-Componentes de la interfaz 
- 
- * [NavBar](https://github.com/Noisk8/Componente-BOS/blob/main/componentes/navbar.jsx)
+Componentes de la interfaz
 
- * [Web3 Connect](https://docs.near.org/bos/tutorial/ethers-js#how-to-show-a-web3login-button)
+[NavBar](https://github.com/Noisk8/Componente-BOS/blob/main/componentes/navbar.jsx)
 
- * [Cards](https://github.com/Noisk8/Componente-BOS/blob/main/componentes/card.jsx)
+[Web3 Connect](https://docs.near.org/bos/tutorial/ethers-js#how-to-show-a-web3login-button)
 
- * [Tabla de registro](https://github.com/Noisk8/Componente-BOS/blob/main/componentes/tabla.jsx)
+[Cards](https://github.com/Noisk8/Componente-BOS/blob/main/componentes/card.jsx)
 
- * [Acordeon](https://github.com/Noisk8/Componente-BOS/blob/main/componentes/acordion.jsx)
+[Tabla de registro](https://github.com/Noisk8/Componente-BOS/blob/main/componentes/tabla.jsx)
 
- * [About](https://github.com/Noisk8/Componente-BOS/blob/main/componentes/about.jsx)
+[Acordeon](https://github.com/Noisk8/Componente-BOS/blob/main/componentes/acordion.jsx)
 
- * [Landing](https://github.com/Noisk8/Componente-BOS/blob/main/componentes/landing.jsx)
+[About](https://github.com/Noisk8/Componente-BOS/blob/main/componentes/about.jsx)
 
-La interfaz cuenta con un navbar, un par de cajas con sombras que permiten al puedes enviar las donaciones y visualizar el registro de los ultimos 5 donantes 
+[Landing](https://github.com/Noisk8/Componente-BOS/blob/main/componentes/landing.jsx)
+
+La interfaz cuenta con un navbar, un par de cajas con sombras que permiten al puedes enviar las donaciones y visualizar el registro de los ultimos 5 donantes
 
 El landing se puede referenciar en [este archivo](https://github.com/Noisk8/Componente-BOS/blob/main/componentes/landing.jsx) Y los componentes se pueden ver por partes en la [carpeta](https://github.com/Noisk8/Componente-BOS/tree/main/componentes) de componentes de este repositorio.
 
-## Backend del Contrato Inteligente para Donaciones 
+---
+
+## Backend del Contrato Inteligente para Donaciones
 
 Este documento proporciona información sobre el backend del contrato inteligente diseñado para gestionar donaciones en la red de prueba Aurora, adaptado para la certificación BOS en Open Web Academy.
 
@@ -48,34 +50,38 @@ El contrato inteligente es un adaptación de donación, permitiendo registrar la
 
 ### Métodos del Contrato
 
-1. **`getCoffeeLog`**
-   - Descripción: Retorna las últimas 5 donaciones realizadas, incluyendo detalles como la marca de tiempo, título, remitente, nombre, mensaje y calificación.
-   - Tipo de retorno: Array de estructuras `Coffee`.
+`**getCoffeeLog**`
 
-2. **`getCoffeeQTY`**
-   - Descripción: Retorna la cantidad total de donaciones realizadas.
-   - Tipo de retorno: Entero (uint256).
+*   Descripción: Retorna las últimas 5 donaciones realizadas, incluyendo detalles como la marca de tiempo, título, remitente, nombre, mensaje y calificación.
+*   Tipo de retorno: Array de estructuras `Coffee`.
 
-3. **`donateCoffee`**
-   - Descripción: Método principal que permite realizar una donación, registrando la sección de blog o post que recibirá la donación.
-   - Parámetros:
-     - `_title`: Título de la sección de blog o post.
-     - `destination`: Dirección del destinatario de la donación.
-     - `_name`: Nombre del remitente.
-     - `_message`: Mensaje asociado a la donación.
-     - `_rating`: Calificación de la donación.
-   - Requiere: La cantidad de la donación debe ser mayor a 0.
+`**getCoffeeQTY**`
+
+*   Descripción: Retorna la cantidad total de donaciones realizadas.
+*   Tipo de retorno: Entero (uint256).
+
+`**donateCoffee**`
+
+*   Descripción: Método principal que permite realizar una donación, registrando la sección de blog o post que recibirá la donación.
+*   Parámetros:
+    *   `_title`: Título de la sección de blog o post.
+    *   `destination`: Dirección del destinatario de la donación.
+    *   `_name`: Nombre del remitente.
+    *   `_message`: Mensaje asociado a la donación.
+    *   `_rating`: Calificación de la donación.
+*   Requiere: La cantidad de la donación debe ser mayor a 0.
 
 ## Uso del Contrato
 
 El contrato permite donar fondos a una dirección específica, registrando la información de la donación y limitando el registro a las últimas 5 donaciones.
 
+---
+
 ## Integración con BOS (Back-Office System)
 
 La integración con BOS se realiza mediante Ether.js para facilitar la comunicación entre el frontend y el contrato inteligente. Se utilizan las funciones `getCoffeeLog` y `getCoffeeQTY` para lecturas, y `donateCoffee` para realizar una donación.
 
-
-~~~
+````plaintext
 # Documentación Desglosada del Contrato Inteligente para Donaciones
 
 A continuación se presenta un desglose línea por línea del contrato inteligente para donaciones, adaptado para la certificación BOS en Open Web Academy.
@@ -148,36 +154,21 @@ contract Forwarder {
         ratingIndex = ratingIndex + 1;
     }
 }
+````
 
-~~~
-
-
-## ABI 
+## ABI
 
 Este ABI describe las tres funciones principales del contrato inteligente: donateCoffee, getCoffeeLog, y getCoffeeQTY. Puedes utilizar este ABI junto con lib ethers para interactuar con el contrato desde el frontend y realizar operaciones como hacer donaciones, obtener el registro de donaciones y la cantidad total de donaciones realizadas. Si tienes alguna pregunta o inquietud, no dudes en preguntar. ¡Gracias por tu interés en el contrato inteligente para donaciones!
 
+---
 
 ## Screenshots
 
 ![Captura desde 2023-11-17 00-14-23](https://github.com/Noisk8/Componente-BOS/assets/17709296/1de92679-a6ac-422a-9327-e2446402fd3a)
 
-![Captura desde 2023-11-17 00-17-24](https://github.com/Noisk8/Componente-BOS/assets/17709296/0383337b-4248-4a4f-9b18-f54e5a315814)
-![Captura desde 2023-11-17 00-17-29](https://github.com/Noisk8/Componente-BOS/assets/17709296/804d2f3d-ae23-4dc2-a9fa-4cb203219bfa)
-![](https://github.com/Noisk8/Componente-BOS/blob/main/img/Captura%20desde%202023-11-17%2000-19-)
-|[](https://github.com/Noisk8/Componente-BOS/blob/main/img/Captura%20desde%202023-11-17%2000-24-22.png)
-![](https://github.com/Noisk8/Componente-BOS/blob/main/img/Captura%20desde%202023-11-17%2000-24-22.png)
+![Captura desde 2023-11-17 00-17-24](https://github.com/Noisk8/Componente-BOS/assets/17709296/0383337b-4248-4a4f-9b18-f54e5a315814)  
+![Captura desde 2023-11-17 00-17-29](https://github.com/Noisk8/Componente-BOS/assets/17709296/804d2f3d-ae23-4dc2-a9fa-4cb203219bfa)  
+![](https://github.com/Noisk8/Componente-BOS/blob/main/img/Captura%20desde%202023-11-17%2000-24-22.png)  
 ![](https://github.com/Noisk8/Componente-BOS/blob/main/img/Captura%20desde%202023-11-17%2000-23-48.png)
 
 ![](https://github.com/Noisk8/Componente-BOS/blob/main/img/Captura%20desde%202023-11-17%2000-24-52.png)
-
-
-
-
-
-
-
-
-
-
-
-
