@@ -15,21 +15,19 @@ const Marquee = styled.div`
     }
   }
 
-  @keyframes marquee2 {
-    from {
-      transform: translateX(100%);
-    }
-    to {
-      transform: translateX(0%);
-    }
-  }
-
   /* Animation properties */
-  animation: ${({ animation }) =>
-    animation === "marquee" ? animation : "marquee2"} 25s linear infinite;
+  animation: marquee 25s linear infinite;
   background-color: #111; /* Cyberpunk-style background color */
   border: 1px solid #00FF00; /* Cyberpunk-style border */
   border-radius: 5px; /* Rounded corners */
+  margin: 0 auto; /* Center the component horizontally */
+  padding: 0.5em 1em; /* Add some padding */
+
+  @media (max-width: 768px) {
+    /* Adjust styles for smaller screens */
+    font-size: 0.8em;
+    gap: 0.5em;
+  }
 `;
 
 const Separator = styled.span`
@@ -42,27 +40,24 @@ const Separator = styled.span`
   }
 `;
 
-const [animation, setAnimation] = useState("marquee");
-
-const handleSwitchAnimation = () => {
-  setAnimation(animation === "marquee" ? "marquee2" : "marquee");
-};
+const MarqueeContent = () => (
+  <>
+    <span>TEXTO</span>
+    <Separator>✺</Separator>
+    <span>TEXTO</span>
+    <Separator>✺</Separator>
+    <span>TEXTO</span>
+    <Separator>✺</Separator>
+    <span>Teatro</span>
+    <Separator>✺</Separator>
+    <span>Arte</span>
+    <Separator>✺</Separator>
+    <span>Pivona</span>
+  </>
+);
 
 return (
-  <>
-    <button onClick={handleSwitchAnimation}>Change Animation</button>
-    <Marquee animation={animation}>
-      <span>TEXTO</span>
-      <Separator>✺</Separator>
-      <span>TEXTO</span>
-      <Separator>✺</Separator>
-      <span>TEXTO</span>
-      <Separator>✺</Separator>
-      <span>Teatro</span>
-      <Separator>✺</Separator>
-      <span>Arte</span>
-      <Separator>✺</Separator>
-      <span>Pivona</span>
-    </Marquee>
-  </>
+  <Marquee>
+    <MarqueeContent />
+  </Marquee>
 );
